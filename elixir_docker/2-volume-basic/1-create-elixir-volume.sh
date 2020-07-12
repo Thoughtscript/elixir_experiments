@@ -13,7 +13,8 @@ docker volume create volume_example_1
 docker volume ls
 
 # Run the Docker container using the created volume
-docker container run --rm -v volume_example_1-mix:/root -v $PWD:/app -w /app -it elixir 
+## Future times this is run will leave the created Elixir projects in the volume
+docker container run --rm -v volume_example_1-mix:/root -it elixir 
 
 # Cleanup
 docker system prune --volumes
