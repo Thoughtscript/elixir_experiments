@@ -29,8 +29,7 @@ Furthermore, the best approach to editing is probably Visual Studio Code. Make s
 Elixir-specific programming notes are described below:
 
 1. Elixir runs on BEAM (akin to Node or JVM).
-
-
+1. To execute compile Elixir code and copy it into a Docker volume review []().
 
 > See: https://elixir-lang.org/
 
@@ -40,3 +39,12 @@ Elixir uses a build tool called Mix to compile, package, and manage Elixir progr
 
 1. It's similar to webpack and NPM rolled into one.
 1. Or, Gradle and Maven.
+
+An example Mix layout created via:
+
+```Bash
+$ mix new mix_example_1 --module MixExample1
+$ docker container run --rm -v $PWD:/data -w /data elixir mix new mix_example_1
+```
+
+is available in [elixir-mix](./elixir-mix).

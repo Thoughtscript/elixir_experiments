@@ -9,4 +9,11 @@ docker pull elixir
 # Create a volume
 docker volume create volume_example_1
 
-docker container run -v --rm volume_example_1:/root/.mix -v $PWD:/app -w /app -it elixir mix compile
+# View the volumes
+docker volume ls
+
+# Run the Docker container using the created volume
+docker container run --rm -v volume_example_1-mix:/root -v $PWD:/app -w /app -it elixir 
+
+# Cleanup
+docker system prune --volumes
