@@ -17,7 +17,25 @@ docker volume ls
 docker container run --rm -v $PWD:/data -w /data elixir mix new mix_example_2
 
 # Run the Docker container using the created volume
-docker container run --rm -v volume_example_2:/root/ -v $PWD:/data -w /data -it elixir mix compile mix_example_2
+## Open bash
+docker container run --rm -v volume_example_2:/root/ -v $PWD:/data -w /data -it elixir bash
+
+## Execute in container Bash:
+mix new example
+MIX_ENV=test mix test
+mix run
+## Note: you may not see any outputs simply because the default mix files don't print
+
+## Execute in container Bash:
+iex
+### iex(1)> 
+c "./mix_example1.ex"
+### > [MixExample1]
+
+### iex(2)> 
+MixExample1.hello()
+### > :world
+## Above, the .ex file was loaded into iex as a dependency then executed
 
 # Cleanup
 docker system prune --volumes

@@ -1,0 +1,15 @@
+# Build Stage
+FROM elixir as build
+
+# Create app directory and copy the Elixir projects into it
+RUN echo "Creating working dir and copying files"
+RUN mkdir /app
+WORKDIR /app
+COPY . .
+
+# Verify structure of copied files
+## You should see the contents of this directory
+RUN ls
+
+# Install hex (as needed)
+# RUN mix local.hex --force
