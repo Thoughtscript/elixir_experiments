@@ -27,6 +27,7 @@ mix run
 ## Note: you may not see any outputs simply because the default mix files don't print
 
 ## Execute in container Bash:
+cd lib
 iex
 ### iex(1)> 
 c "./mix_example1.ex"
