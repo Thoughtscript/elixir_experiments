@@ -12,4 +12,8 @@ COPY . .
 RUN ls
 
 # Install hex (as needed)
-# RUN mix local.hex --force
+RUN mix local.hex --force
+
+# Close without further commands
+## The container is now prepped with the files inside it
+## Look for the CONTAINER ID <b671c7aa4ffc>
